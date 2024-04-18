@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
-using UnityEngine.InputSystem.EnhancedTouch;
 
 public class Driver : MonoBehaviour
 {
@@ -12,7 +9,6 @@ public class Driver : MonoBehaviour
     [SerializeField] float moveSpeed = 25.1f;
     [SerializeField] float slowSpeed = 10.1f;
     [SerializeField] float boostSpeed = 32.1f;
-    [SerializeField] private InputActionReference moveActionToUse;
     float normalSpeed = 25.1f;
     // Start is called before the first frame update
     void Start()
@@ -41,10 +37,18 @@ public class Driver : MonoBehaviour
     {
         float steer = Input.GetAxis("Horizontal") * SteerSpeed * Time.deltaTime;
         float move1 = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
-        float steer1 = moveActionToUse.action.ReadValue<Vector2>().x * SteerSpeed * Time.deltaTime;
-        float moveY = moveActionToUse.action.ReadValue<Vector2>().y * moveSpeed * Time.deltaTime;
+        // Check if there is a touch input
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            MoveObject(touch.position);
+        }
 
-
+        // Check for mouse input
+        if (Input.GetMouseButton(0))
+        {
+            MoveObject(Input.mousePosition);
+        }
 
         //float move = Input.GetAxis("Fire1") * moveSpeed * Time.deltaTime;
         //float move2 = Input.GetAxis("Fire2") * moveSpeed * Time.deltaTime;
@@ -53,13 +57,11 @@ public class Driver : MonoBehaviour
         //transform.Translate(0, move, 0);
         //transform.Translate(0, -move2, 0);
         transform.Translate(0, move1, 0);
-        transform.Translate(0, moveY, 0);
-        transform.Rotate(0, 0, -steer1);
-
-
 
 
     }
+    private void MoveObject(Vector2 position)
+    {
+
+    }
 }
-
-
