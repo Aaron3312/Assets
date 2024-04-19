@@ -7,11 +7,12 @@ using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.UI;
 using Alteruna;
 
+
 public class Driver : MonoBehaviour
 {
-    private Camera cam; // Camera variable to hold a reference to our camera
     private Alteruna.Avatar _avatar;
     public GameObject deathCamera;
+    public GameObject Maincamera;
 
     [SerializeField] float SteerSpeed = 200.1f;
     [SerializeField] float moveSpeed = 25.1f;
@@ -21,9 +22,17 @@ public class Driver : MonoBehaviour
     float normalSpeed = 25.1f;
     [SerializeField] public Text Turbo;
     // Start is called before the first frame update
+    GameObject cameraInstance;
+
+
     void Start()
     {
+        cameraInstance = Instantiate(Maincamera);
         deathCamera.SetActive(false);
+        cameraInstance.SetActive(true);
+        // Opcionalmente, puedes establecer la posición y rotación de la cámara.
+        //cameraInstance.transform.position = new Vector3(0, 1, -10); // Por ejemplo, detrás y por encima del origen.
+        //cameraInstance.transform.rotation = Quaternion.identity; // Sin rotación.
 
         _avatar = GetComponent<Alteruna.Avatar>();
         if (!_avatar.IsMe)
@@ -31,7 +40,6 @@ public class Driver : MonoBehaviour
         {
             Debug.LogError("No Avatar component found on this object");
         }
-        cam = Camera.main; // Assign the main camera
         Turbo.text = "TURBO OFF";
     }
     void OnCollisionEnter2D(Collision2D other)
@@ -65,6 +73,7 @@ public class Driver : MonoBehaviour
         float move1 = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
         float steer1 = moveActionToUse.action.ReadValue<Vector2>().x * SteerSpeed * Time.deltaTime;
         float moveY = moveActionToUse.action.ReadValue<Vector2>().y * moveSpeed * Time.deltaTime;
+        cameraInstance.transform.position = transform.position + new Vector3(0, 0, -150);
 
 
 

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2818381668369188738}
   - component: {fileID: 1217305618898731726}
   - component: {fileID: 409253965999462235}
+  - component: {fileID: -8285789642780929550}
   m_Layer: 0
   m_Name: Cruisy Mdrive
   m_TagString: Player
@@ -31,13 +32,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7084035261206641510}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.1, y: -6.41, z: -6.02}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.3585682, y: -1.93085, z: -1.2713127}
   m_LocalScale: {x: 0.583214, y: 0.612739, z: 0.5832139}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4844966473292318571
 SpriteRenderer:
@@ -211,6 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathCamera: {fileID: 1011293060615711117, guid: 1269dd2abaf94ad4e9a87b820101ecb2, type: 3}
+  Maincamera: {fileID: 4311712730086276138, guid: ea5a8d5d5a88125479bfb5a1d2e11cbb, type: 3}
   SteerSpeed: 200.1
   moveSpeed: 25.1
   slowSpeed: 10.1
@@ -293,3 +295,15 @@ MonoBehaviour:
   OnUnpossessed:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-8285789642780929550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7084035261206641510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebabce481bd24d149a29c75a3ec96f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

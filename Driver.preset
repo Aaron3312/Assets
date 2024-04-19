@@ -25,11 +25,31 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: deathCamera
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: SteerSpeed
     value: 200.1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: moveSpeed
     value: 25.1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: slowSpeed
+    value: 10.1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: boostSpeed
+    value: 32.1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: moveActionToUse
+    value: 
+    objectReference: {fileID: 6301632180021967034, guid: 1d9def24b6d0ab249a7418ef3dc44c91, type: 3}
+  - target: {fileID: 0}
+    propertyPath: Turbo
+    value: 
     objectReference: {fileID: 0}
   m_ExcludedProperties: []
