@@ -60,7 +60,10 @@ public class Delivery : MonoBehaviour
     }
     void gameOver()
     {
-        //deathCamera.SetActive(true);
+        Driver driver = GetComponent<Driver>();
+        driver.StopTimer();
+        
+        deathCamera.SetActive(true);
     }
 
 }
